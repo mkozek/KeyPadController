@@ -8,8 +8,9 @@ namespace KeyPadMaster
         }
         int index = -1;
         Color color;
-        
-        List<ButtonProperties> buttons = new(16);
+        Keys shortcutSelectedKey = Keys.None;
+
+        Dictionary<int,ButtonProperties> buttons = new(16);
         
 
         private void clearColor()
@@ -25,18 +26,18 @@ namespace KeyPadMaster
             L3button.BackColor = Color.FromArgb(128, 128, 255);
         }
 
-        private void button_Click(object sender, EventArgs e)
+        private void ElementSelected(object sender, EventArgs e)
         {
             int btnNo = -1;
             if (sender == null) return;
-            int.TryParse((string?)(sender as Button).Tag, out btnNo);
+            _ = int.TryParse((string?)((Button)sender).Tag, out btnNo);
 
             index = btnNo;
             clearColor();
-            (sender as Button).BackColor = Color.FromArgb(255,150,220);
+            ((Button)sender).BackColor = Color.FromArgb(255,150,220);
         }
 
-        private void textBox1_MouseDoubleClick(object sender, MouseEventArgs e)
+        private void ColorPickerTextBox_DoubleClick(object sender, MouseEventArgs e)
         {
             colorDialog1 = new ColorDialog();
             colorDialog1.ShowDialog();
@@ -46,12 +47,12 @@ namespace KeyPadMaster
             textBox1.Text = $"({color.R}, {color.G}, {color.B})";
         }
 
-        private void saveBTN_Click(object sender, EventArgs e)
+        private void SaveBTN_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void textBox3_Click(object sender, EventArgs e)
+        private void ShortcutKeyTxtBox_Click(object sender, EventArgs e)
         {
             this.KeyPreview = true;
             KeyDown += Form1_KeyDown;
@@ -60,11 +61,17 @@ namespace KeyPadMaster
         private void Form1_KeyDown(object? sender, KeyEventArgs e)
         {
             var a = e.KeyCode;
+            shortcutSelectedKey = a;
             textBox3.Text = a switch
             {
                 Keys.F1 => "Keycode.F1",
-                _ => a.ToString(),
+                _ => a.ToString().ToUpper(),
             };
+        }
+
+        private void ComboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 
@@ -79,6 +86,10 @@ namespace KeyPadMaster
         {
             index = idx; 
             action = new NoAction();
+        }
+        public void ChangeAction(IBtnAction newAction)
+        {
+            action = newAction;
         }
         
         public string GetColorCode()
@@ -105,6 +116,60 @@ namespace KeyPadMaster
         public string GenerateCode()
         {
             return "";
+        }
+    }
+
+    class ShortcutAction : IBtnAction
+    {
+        bool isAlt = false;
+        bool isShift = false;
+        bool isWindows = false;
+        bool isControl = false;
+        Keys key;
+
+        public ShortcutAction(Keys key, bool isAlt = false, bool isShift = false, bool isWindows = false, bool isControl = false)
+        {
+            this.key = key;
+            this.isAlt = isAlt;
+            this.isShift = isShift;   
+            this.isWindows = isWindows;
+            this.isControl = isControl;
+
+        }
+
+        public string GenerateCode()
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    class TextAction : IBtnAction
+    {
+        string text;
+
+        public TextAction(string text)
+        {
+            this.text = text;
+        }
+
+        public string GenerateCode()
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    class MediaAction : IBtnAction
+    {
+        string media;
+
+        public MediaAction(string selectedMediaAction)
+        {
+            media = selectedMediaAction;
+        }
+
+        public string GenerateCode()
+        {
+            throw new NotImplementedException();
         }
     }
 

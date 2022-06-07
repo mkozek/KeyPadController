@@ -55,6 +55,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.textBox3 = new System.Windows.Forms.TextBox();
             this.WINDOWScb = new System.Windows.Forms.CheckBox();
             this.SHIFTcb = new System.Windows.Forms.CheckBox();
             this.CTRLcb = new System.Windows.Forms.CheckBox();
@@ -62,10 +63,9 @@
             this.saveBTN = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.radioButton6 = new System.Windows.Forms.RadioButton();
-            this.radioButton5 = new System.Windows.Forms.RadioButton();
-            this.radioButton4 = new System.Windows.Forms.RadioButton();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.MediaActionRBTN = new System.Windows.Forms.RadioButton();
+            this.TextActionRBTN = new System.Windows.Forms.RadioButton();
+            this.ShortcutActionRBTN = new System.Windows.Forms.RadioButton();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -106,7 +106,7 @@
             this.button14.TabIndex = 30;
             this.button14.Tag = "15";
             this.button14.UseVisualStyleBackColor = true;
-            this.button14.Click += new System.EventHandler(this.button_Click);
+            this.button14.Click += new System.EventHandler(this.ElementSelected);
             // 
             // button13
             // 
@@ -119,7 +119,7 @@
             this.button13.TabIndex = 31;
             this.button13.Tag = "7";
             this.button13.UseVisualStyleBackColor = true;
-            this.button13.Click += new System.EventHandler(this.button_Click);
+            this.button13.Click += new System.EventHandler(this.ElementSelected);
             // 
             // button10
             // 
@@ -132,7 +132,7 @@
             this.button10.TabIndex = 26;
             this.button10.Tag = "14";
             this.button10.UseVisualStyleBackColor = true;
-            this.button10.Click += new System.EventHandler(this.button_Click);
+            this.button10.Click += new System.EventHandler(this.ElementSelected);
             // 
             // button23
             // 
@@ -145,7 +145,7 @@
             this.button23.TabIndex = 29;
             this.button23.Tag = "11";
             this.button23.UseVisualStyleBackColor = true;
-            this.button23.Click += new System.EventHandler(this.button_Click);
+            this.button23.Click += new System.EventHandler(this.ElementSelected);
             // 
             // button6
             // 
@@ -158,7 +158,7 @@
             this.button6.TabIndex = 22;
             this.button6.Tag = "13";
             this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button_Click);
+            this.button6.Click += new System.EventHandler(this.ElementSelected);
             // 
             // SELbtn
             // 
@@ -174,7 +174,7 @@
             this.SELbtn.Tag = "0";
             this.SELbtn.Text = "SEL";
             this.SELbtn.UseVisualStyleBackColor = false;
-            this.SELbtn.Click += new System.EventHandler(this.button_Click);
+            this.SELbtn.Click += new System.EventHandler(this.ElementSelected);
             // 
             // button3
             // 
@@ -187,7 +187,7 @@
             this.button3.TabIndex = 18;
             this.button3.Tag = "12";
             this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button_Click);
+            this.button3.Click += new System.EventHandler(this.ElementSelected);
             // 
             // L1button
             // 
@@ -215,7 +215,7 @@
             this.button11.TabIndex = 25;
             this.button11.Tag = "10";
             this.button11.UseVisualStyleBackColor = true;
-            this.button11.Click += new System.EventHandler(this.button_Click);
+            this.button11.Click += new System.EventHandler(this.ElementSelected);
             // 
             // button9
             // 
@@ -228,7 +228,7 @@
             this.button9.TabIndex = 27;
             this.button9.Tag = "6";
             this.button9.UseVisualStyleBackColor = true;
-            this.button9.Click += new System.EventHandler(this.button_Click);
+            this.button9.Click += new System.EventHandler(this.ElementSelected);
             // 
             // L2button
             // 
@@ -256,7 +256,7 @@
             this.button7.TabIndex = 21;
             this.button7.Tag = "9";
             this.button7.UseVisualStyleBackColor = true;
-            this.button7.Click += new System.EventHandler(this.button_Click);
+            this.button7.Click += new System.EventHandler(this.ElementSelected);
             // 
             // L3button
             // 
@@ -284,7 +284,7 @@
             this.button4.TabIndex = 19;
             this.button4.Tag = "4";
             this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button_Click);
+            this.button4.Click += new System.EventHandler(this.ElementSelected);
             // 
             // button2
             // 
@@ -297,7 +297,7 @@
             this.button2.TabIndex = 17;
             this.button2.Tag = "8";
             this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button_Click);
+            this.button2.Click += new System.EventHandler(this.ElementSelected);
             // 
             // button5
             // 
@@ -310,7 +310,7 @@
             this.button5.TabIndex = 23;
             this.button5.Tag = "5";
             this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button_Click);
+            this.button5.Click += new System.EventHandler(this.ElementSelected);
             // 
             // colorDialog1
             // 
@@ -332,7 +332,7 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(100, 23);
             this.textBox1.TabIndex = 2;
-            this.textBox1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.textBox1_MouseDoubleClick);
+            this.textBox1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.ColorPickerTextBox_DoubleClick);
             // 
             // radioButton1
             // 
@@ -394,9 +394,9 @@
             this.panel2.Controls.Add(this.saveBTN);
             this.panel2.Controls.Add(this.textBox2);
             this.panel2.Controls.Add(this.comboBox1);
-            this.panel2.Controls.Add(this.radioButton6);
-            this.panel2.Controls.Add(this.radioButton5);
-            this.panel2.Controls.Add(this.radioButton4);
+            this.panel2.Controls.Add(this.MediaActionRBTN);
+            this.panel2.Controls.Add(this.TextActionRBTN);
+            this.panel2.Controls.Add(this.ShortcutActionRBTN);
             this.panel2.Controls.Add(this.textBox1);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.checkBox1);
@@ -416,6 +416,15 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(297, 82);
             this.panel3.TabIndex = 12;
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(61, 46);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.ReadOnly = true;
+            this.textBox3.Size = new System.Drawing.Size(159, 23);
+            this.textBox3.TabIndex = 4;
+            this.textBox3.Click += new System.EventHandler(this.ShortcutKeyTxtBox_Click);
             // 
             // WINDOWScb
             // 
@@ -465,7 +474,7 @@
             this.saveBTN.TabIndex = 11;
             this.saveBTN.Text = "Save";
             this.saveBTN.UseVisualStyleBackColor = true;
-            this.saveBTN.Click += new System.EventHandler(this.saveBTN_Click);
+            this.saveBTN.Click += new System.EventHandler(this.SaveBTN_Click);
             // 
             // textBox2
             // 
@@ -494,46 +503,39 @@
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(203, 23);
             this.comboBox1.TabIndex = 9;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.ComboBox1_SelectedIndexChanged);
             // 
-            // radioButton6
+            // MediaActionRBTN
             // 
-            this.radioButton6.AutoSize = true;
-            this.radioButton6.Location = new System.Drawing.Point(14, 80);
-            this.radioButton6.Name = "radioButton6";
-            this.radioButton6.Size = new System.Drawing.Size(98, 19);
-            this.radioButton6.TabIndex = 8;
-            this.radioButton6.Text = "MediaControl";
-            this.radioButton6.UseVisualStyleBackColor = true;
+            this.MediaActionRBTN.AutoSize = true;
+            this.MediaActionRBTN.Location = new System.Drawing.Point(14, 80);
+            this.MediaActionRBTN.Name = "MediaActionRBTN";
+            this.MediaActionRBTN.Size = new System.Drawing.Size(98, 19);
+            this.MediaActionRBTN.TabIndex = 8;
+            this.MediaActionRBTN.Text = "MediaControl";
+            this.MediaActionRBTN.UseVisualStyleBackColor = true;
             // 
-            // radioButton5
+            // TextActionRBTN
             // 
-            this.radioButton5.AutoSize = true;
-            this.radioButton5.Checked = true;
-            this.radioButton5.Location = new System.Drawing.Point(14, 121);
-            this.radioButton5.Name = "radioButton5";
-            this.radioButton5.Size = new System.Drawing.Size(46, 19);
-            this.radioButton5.TabIndex = 7;
-            this.radioButton5.TabStop = true;
-            this.radioButton5.Text = "Text";
-            this.radioButton5.UseVisualStyleBackColor = true;
+            this.TextActionRBTN.AutoSize = true;
+            this.TextActionRBTN.Checked = true;
+            this.TextActionRBTN.Location = new System.Drawing.Point(14, 121);
+            this.TextActionRBTN.Name = "TextActionRBTN";
+            this.TextActionRBTN.Size = new System.Drawing.Size(46, 19);
+            this.TextActionRBTN.TabIndex = 7;
+            this.TextActionRBTN.TabStop = true;
+            this.TextActionRBTN.Text = "Text";
+            this.TextActionRBTN.UseVisualStyleBackColor = true;
             // 
-            // radioButton4
+            // ShortcutActionRBTN
             // 
-            this.radioButton4.AutoSize = true;
-            this.radioButton4.Location = new System.Drawing.Point(14, 166);
-            this.radioButton4.Name = "radioButton4";
-            this.radioButton4.Size = new System.Drawing.Size(70, 19);
-            this.radioButton4.TabIndex = 6;
-            this.radioButton4.Text = "Shortcut";
-            this.radioButton4.UseVisualStyleBackColor = true;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(61, 46);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(159, 23);
-            this.textBox3.TabIndex = 4;
-            this.textBox3.Click += new System.EventHandler(this.textBox3_Click);
+            this.ShortcutActionRBTN.AutoSize = true;
+            this.ShortcutActionRBTN.Location = new System.Drawing.Point(14, 166);
+            this.ShortcutActionRBTN.Name = "ShortcutActionRBTN";
+            this.ShortcutActionRBTN.Size = new System.Drawing.Size(70, 19);
+            this.ShortcutActionRBTN.TabIndex = 6;
+            this.ShortcutActionRBTN.Text = "Shortcut";
+            this.ShortcutActionRBTN.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -580,9 +582,9 @@
         private Panel panel2;
         private TextBox textBox2;
         private ComboBox comboBox1;
-        private RadioButton radioButton6;
-        private RadioButton radioButton5;
-        private RadioButton radioButton4;
+        private RadioButton MediaActionRBTN;
+        private RadioButton TextActionRBTN;
+        private RadioButton ShortcutActionRBTN;
         private Button button14;
         private Button button13;
         private Button button10;
