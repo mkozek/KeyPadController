@@ -50,6 +50,22 @@ namespace KeyPadMaster
         {
 
         }
+
+        private void textBox3_Click(object sender, EventArgs e)
+        {
+            this.KeyPreview = true;
+            KeyDown += Form1_KeyDown;
+        }
+
+        private void Form1_KeyDown(object? sender, KeyEventArgs e)
+        {
+            var a = e.KeyCode;
+            textBox3.Text = a switch
+            {
+                Keys.F1 => "Keycode.F1",
+                _ => a.ToString(),
+            };
+        }
     }
 
     public class ButtonProperties

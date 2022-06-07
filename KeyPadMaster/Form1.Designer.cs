@@ -65,6 +65,7 @@
             this.radioButton6 = new System.Windows.Forms.RadioButton();
             this.radioButton5 = new System.Windows.Forms.RadioButton();
             this.radioButton4 = new System.Windows.Forms.RadioButton();
+            this.textBox3 = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -406,6 +407,7 @@
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.textBox3);
             this.panel3.Controls.Add(this.WINDOWScb);
             this.panel3.Controls.Add(this.SHIFTcb);
             this.panel3.Controls.Add(this.CTRLcb);
@@ -525,6 +527,14 @@
             this.radioButton4.Text = "Shortcut";
             this.radioButton4.UseVisualStyleBackColor = true;
             // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(61, 46);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(159, 23);
+            this.textBox3.TabIndex = 4;
+            this.textBox3.Click += new System.EventHandler(this.textBox3_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -585,5 +595,6 @@
         private CheckBox SHIFTcb;
         private CheckBox CTRLcb;
         private CheckBox ALTcb;
+        private TextBox textBox3;
     }
 }
