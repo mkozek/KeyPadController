@@ -49,7 +49,7 @@ namespace KeyPadMaster
 
         private void SaveBTN_Click(object sender, EventArgs e)
         {
-            buttons.TryAdd(index,new ButtonProperties())
+            buttons.TryAdd(index, new ButtonProperties(index));
         }
 
         private void ShortcutKeyTxtBox_Click(object sender, EventArgs e)
@@ -147,11 +147,12 @@ namespace KeyPadMaster
 
         public string GenerateCode()
         {
-            return($"keyboard.send({(isAlt)?("keycode.ALT, "):("")}
-                {(isShift)?("keycode.SHIFT, "):("")}
-                {(isControl)?("keycode.CONTROL, "):("")}
-                {(isWindows)?("keycode.GUI, "):("")}
-                keycode.{Functions.GetKeyCode(key)})");
+            string v = $"keyboard.send({(isAlt ? ("keycode.ALT, ") : (""))}";
+            v += $"{(isShift ? ("keycode.SHIFT, ") : (""))}";
+            v += $"{(isControl ? ("keycode.CONTROL, ") : (""))}";
+            v += $"{(isWindows ? ("keycode.GUI, ") : (""))}";
+            v+= $"keycode.{Functions.GetKeyCode(key)})";
+            return v;
         }
     }
 
