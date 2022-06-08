@@ -119,6 +119,14 @@ namespace KeyPadMaster
         }
     }
 
+    static class Functions
+    {
+        public static string GetKeyCode(Keys key)
+        {
+            return(key.ToString());
+        }
+    }
+
     class ShortcutAction : IBtnAction
     {
         bool isAlt = false;
@@ -139,7 +147,11 @@ namespace KeyPadMaster
 
         public string GenerateCode()
         {
-            throw new NotImplementedException();
+            return($"keyboard.send({(isAlt)?("keycode.ALT, "):("")}
+                {(isShift)?("keycode.SHIFT, "):("")}
+                {(isControl)?("keycode.CONTROL, "):("")}
+                {(isWindows)?("keycode.GUI, "):("")}
+                keycode.{Functions.GetKeyCode(key)})");
         }
     }
 
@@ -154,7 +166,7 @@ namespace KeyPadMaster
 
         public string GenerateCode()
         {
-            throw new NotImplementedException();
+            return($"layout.write(\"{text}\")");
         }
     }
 
