@@ -49,7 +49,7 @@ namespace KeyPadMaster
 
         private void SaveBTN_Click(object sender, EventArgs e)
         {
-
+            buttons.TryAdd(index,new ButtonProperties())
         }
 
         private void ShortcutKeyTxtBox_Click(object sender, EventArgs e)
