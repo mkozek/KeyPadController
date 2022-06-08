@@ -181,7 +181,7 @@ namespace KeyPadMaster
 
         public string GenerateCode()
         {
-            return($"ConsumerControl.send(ConsumerControlCode.{media})");
+            return($"consumer_control.send(ConsumerControlCode.{media})");
         }
     }
 
