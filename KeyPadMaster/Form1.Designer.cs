@@ -55,14 +55,14 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.shortcutKeyCode = new System.Windows.Forms.TextBox();
             this.WINDOWScb = new System.Windows.Forms.CheckBox();
             this.SHIFTcb = new System.Windows.Forms.CheckBox();
             this.CTRLcb = new System.Windows.Forms.CheckBox();
             this.ALTcb = new System.Windows.Forms.CheckBox();
             this.saveBTN = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.textActionTxtBox = new System.Windows.Forms.TextBox();
+            this.selMediaActionCombo = new System.Windows.Forms.ComboBox();
             this.MediaActionRBTN = new System.Windows.Forms.RadioButton();
             this.TextActionRBTN = new System.Windows.Forms.RadioButton();
             this.ShortcutActionRBTN = new System.Windows.Forms.RadioButton();
@@ -392,8 +392,8 @@
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel2.Controls.Add(this.panel3);
             this.panel2.Controls.Add(this.saveBTN);
-            this.panel2.Controls.Add(this.textBox2);
-            this.panel2.Controls.Add(this.comboBox1);
+            this.panel2.Controls.Add(this.textActionTxtBox);
+            this.panel2.Controls.Add(this.selMediaActionCombo);
             this.panel2.Controls.Add(this.MediaActionRBTN);
             this.panel2.Controls.Add(this.TextActionRBTN);
             this.panel2.Controls.Add(this.ShortcutActionRBTN);
@@ -407,7 +407,7 @@
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.textBox3);
+            this.panel3.Controls.Add(this.shortcutKeyCode);
             this.panel3.Controls.Add(this.WINDOWScb);
             this.panel3.Controls.Add(this.SHIFTcb);
             this.panel3.Controls.Add(this.CTRLcb);
@@ -417,14 +417,14 @@
             this.panel3.Size = new System.Drawing.Size(297, 82);
             this.panel3.TabIndex = 12;
             // 
-            // textBox3
+            // shortcutKeyCode
             // 
-            this.textBox3.Location = new System.Drawing.Point(61, 46);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.ReadOnly = true;
-            this.textBox3.Size = new System.Drawing.Size(159, 23);
-            this.textBox3.TabIndex = 4;
-            this.textBox3.Click += new System.EventHandler(this.ShortcutKeyTxtBox_Click);
+            this.shortcutKeyCode.Location = new System.Drawing.Point(61, 46);
+            this.shortcutKeyCode.Name = "shortcutKeyCode";
+            this.shortcutKeyCode.ReadOnly = true;
+            this.shortcutKeyCode.Size = new System.Drawing.Size(159, 23);
+            this.shortcutKeyCode.TabIndex = 4;
+            this.shortcutKeyCode.Click += new System.EventHandler(this.ShortcutKeyTxtBox_Click);
             // 
             // WINDOWScb
             // 
@@ -476,17 +476,17 @@
             this.saveBTN.UseVisualStyleBackColor = true;
             this.saveBTN.Click += new System.EventHandler(this.SaveBTN_Click);
             // 
-            // textBox2
+            // textActionTxtBox
             // 
-            this.textBox2.Location = new System.Drawing.Point(124, 117);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(250, 23);
-            this.textBox2.TabIndex = 10;
+            this.textActionTxtBox.Location = new System.Drawing.Point(124, 117);
+            this.textActionTxtBox.Name = "textActionTxtBox";
+            this.textActionTxtBox.Size = new System.Drawing.Size(250, 23);
+            this.textActionTxtBox.TabIndex = 10;
             // 
-            // comboBox1
+            // selMediaActionCombo
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.selMediaActionCombo.FormattingEnabled = true;
+            this.selMediaActionCombo.Items.AddRange(new object[] {
             "RECORD",
             "FAST_FORWARD",
             "REWIND",
@@ -499,11 +499,11 @@
             "VOLUME_INCREMENT",
             "BRIGHTNESS_DECREMENT",
             "BRIGHTNESS_INCREMENT"});
-            this.comboBox1.Location = new System.Drawing.Point(134, 76);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(203, 23);
-            this.comboBox1.TabIndex = 9;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.ComboBox1_SelectedIndexChanged);
+            this.selMediaActionCombo.Location = new System.Drawing.Point(134, 76);
+            this.selMediaActionCombo.Name = "selMediaActionCombo";
+            this.selMediaActionCombo.Size = new System.Drawing.Size(203, 23);
+            this.selMediaActionCombo.TabIndex = 9;
+            this.selMediaActionCombo.SelectedIndexChanged += new System.EventHandler(this.ComboBox1_SelectedIndexChanged);
             // 
             // MediaActionRBTN
             // 
@@ -580,8 +580,8 @@
         private RadioButton radioButton2;
         private Label label1;
         private Panel panel2;
-        private TextBox textBox2;
-        private ComboBox comboBox1;
+        private TextBox textActionTxtBox;
+        private ComboBox selMediaActionCombo;
         private RadioButton MediaActionRBTN;
         private RadioButton TextActionRBTN;
         private RadioButton ShortcutActionRBTN;
@@ -597,6 +597,6 @@
         private CheckBox SHIFTcb;
         private CheckBox CTRLcb;
         private CheckBox ALTcb;
-        private TextBox textBox3;
+        private TextBox shortcutKeyCode;
     }
 }

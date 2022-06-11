@@ -49,7 +49,37 @@ namespace KeyPadMaster
 
         private void SaveBTN_Click(object sender, EventArgs e)
         {
-            buttons.TryAdd(index, new ButtonProperties(index));
+            IBtnAction? action = null;
+            ButtonProperties props;
+
+            if (MediaActionRBTN.Checked)
+            {
+                action = new MediaAction(selMediaActionCombo.SelectedText);
+            }
+            if (TextActionRBTN.Checked)
+            {
+                action = new TextAction(textActionTxtBox.Text);
+            }
+            if (ShortcutActionRBTN.Checked)
+            {
+                action = new ShortcutAction(shortcutSelectedKey, ALTcb.Checked, SHIFTcb.Checked, WINDOWScb.Checked, CTRLcb.Checked);
+            }
+            if(action != null)
+            {
+                props = new ButtonProperties(index, action);
+
+            }
+            else
+            {
+                props = new ButtonProperties(index);
+            }
+            
+
+            if (!buttons.TryAdd(index,props))
+            {
+                buttons.Remove(index);
+                buttons.Add(index, props);
+            }
         }
 
         private void ShortcutKeyTxtBox_Click(object sender, EventArgs e)
@@ -62,7 +92,7 @@ namespace KeyPadMaster
         {
             var a = e.KeyCode;
             shortcutSelectedKey = a;
-            textBox3.Text = a switch
+            shortcutKeyCode.Text = a switch
             {
                 Keys.F1 => "Keycode.F1",
                 _ => a.ToString().ToUpper(),
@@ -87,6 +117,14 @@ namespace KeyPadMaster
             index = idx; 
             action = new NoAction();
         }
+
+        public ButtonProperties(int idx, IBtnAction btnAction)
+        {
+            action = btnAction;
+            index = idx;
+        }
+
+
         public void ChangeAction(IBtnAction newAction)
         {
             action = newAction;
