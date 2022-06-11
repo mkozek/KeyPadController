@@ -9,9 +9,9 @@ namespace KeyPadMaster
         int index = -1;
         Color color;
         Keys shortcutSelectedKey = Keys.None;
-
         Dictionary<int,ButtonProperties> buttons = new(16);
         
+        List<Dictionary<int,ButtonProperties>> layers = new List<Dictionary<int,ButtonProperties>>();
 
         private void clearColor()
         {
@@ -66,7 +66,7 @@ namespace KeyPadMaster
             }
             if(action != null)
             {
-                props = new ButtonProperties(index, action);
+                props = new ButtonProperties(index, action, color);
 
             }
             else
@@ -103,6 +103,11 @@ namespace KeyPadMaster
         {
 
         }
+
+        private void SaveLayer_Click(object sender, EventArgs e)
+        {
+            var aa = buttons;
+        }
     }
 
     public class ButtonProperties
@@ -118,10 +123,11 @@ namespace KeyPadMaster
             action = new NoAction();
         }
 
-        public ButtonProperties(int idx, IBtnAction btnAction)
+        public ButtonProperties(int idx, IBtnAction btnAction,Color color)
         {
             action = btnAction;
             index = idx;
+            this.color = color;
         }
 
 
@@ -162,6 +168,17 @@ namespace KeyPadMaster
         public static string GetKeyCode(Keys key)
         {
             return(key.ToString());
+        }
+
+        public static string GetIdent(int number)
+        {
+            string ident = "    ";
+            string ret = "";
+            for (int i = 0; i < number; i++)
+            {
+                ret += ident;
+            }
+            return ret;
         }
     }
 

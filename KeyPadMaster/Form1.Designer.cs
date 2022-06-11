@@ -66,6 +66,7 @@
             this.MediaActionRBTN = new System.Windows.Forms.RadioButton();
             this.TextActionRBTN = new System.Windows.Forms.RadioButton();
             this.ShortcutActionRBTN = new System.Windows.Forms.RadioButton();
+            this.SaveLayerBtn = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -537,11 +538,22 @@
             this.ShortcutActionRBTN.Text = "Shortcut";
             this.ShortcutActionRBTN.UseVisualStyleBackColor = true;
             // 
+            // SaveLayerBtn
+            // 
+            this.SaveLayerBtn.Location = new System.Drawing.Point(341, 35);
+            this.SaveLayerBtn.Name = "SaveLayerBtn";
+            this.SaveLayerBtn.Size = new System.Drawing.Size(75, 23);
+            this.SaveLayerBtn.TabIndex = 7;
+            this.SaveLayerBtn.Text = "Save Layer";
+            this.SaveLayerBtn.UseVisualStyleBackColor = true;
+            this.SaveLayerBtn.Click += new System.EventHandler(this.SaveLayer_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(435, 602);
+            this.Controls.Add(this.SaveLayerBtn);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.panel1);
@@ -598,5 +610,6 @@
         private CheckBox CTRLcb;
         private CheckBox ALTcb;
         private TextBox shortcutKeyCode;
+        private Button SaveLayerBtn;
     }
 }
