@@ -46,12 +46,12 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.EnableActionCheckBox = new System.Windows.Forms.CheckBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.radioButtonLayer1 = new System.Windows.Forms.RadioButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.radioButtonLayer3 = new System.Windows.Forms.RadioButton();
+            this.radioButtonLayer2 = new System.Windows.Forms.RadioButton();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -67,6 +67,7 @@
             this.TextActionRBTN = new System.Windows.Forms.RadioButton();
             this.ShortcutActionRBTN = new System.Windows.Forms.RadioButton();
             this.SaveLayerBtn = new System.Windows.Forms.Button();
+            this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -317,15 +318,15 @@
             // 
             this.colorDialog1.AnyColor = true;
             // 
-            // checkBox1
+            // EnableActionCheckBox
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(15, 16);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(61, 19);
-            this.checkBox1.TabIndex = 1;
-            this.checkBox1.Text = "Enable";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.EnableActionCheckBox.AutoSize = true;
+            this.EnableActionCheckBox.Location = new System.Drawing.Point(15, 16);
+            this.EnableActionCheckBox.Name = "EnableActionCheckBox";
+            this.EnableActionCheckBox.Size = new System.Drawing.Size(61, 19);
+            this.EnableActionCheckBox.TabIndex = 1;
+            this.EnableActionCheckBox.Text = "Enable";
+            this.EnableActionCheckBox.UseVisualStyleBackColor = true;
             // 
             // textBox1
             // 
@@ -335,23 +336,24 @@
             this.textBox1.TabIndex = 2;
             this.textBox1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.ColorPickerTextBox_DoubleClick);
             // 
-            // radioButton1
+            // radioButtonLayer1
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Checked = true;
-            this.radioButton1.Location = new System.Drawing.Point(20, 31);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(62, 19);
-            this.radioButton1.TabIndex = 3;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Layer 1";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.radioButtonLayer1.AutoSize = true;
+            this.radioButtonLayer1.Checked = true;
+            this.radioButtonLayer1.Location = new System.Drawing.Point(20, 31);
+            this.radioButtonLayer1.Name = "radioButtonLayer1";
+            this.radioButtonLayer1.Size = new System.Drawing.Size(62, 19);
+            this.radioButtonLayer1.TabIndex = 3;
+            this.radioButtonLayer1.TabStop = true;
+            this.radioButtonLayer1.Text = "Layer 1";
+            this.radioButtonLayer1.UseVisualStyleBackColor = true;
+            this.radioButtonLayer1.CheckedChanged += new System.EventHandler(this.RadioButtonLayer_CheckedChanged);
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.radioButton3);
-            this.groupBox1.Controls.Add(this.radioButton2);
-            this.groupBox1.Controls.Add(this.radioButton1);
+            this.groupBox1.Controls.Add(this.radioButtonLayer3);
+            this.groupBox1.Controls.Add(this.radioButtonLayer2);
+            this.groupBox1.Controls.Add(this.radioButtonLayer1);
             this.groupBox1.Location = new System.Drawing.Point(2, 265);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(421, 71);
@@ -359,25 +361,27 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "LayerSelection";
             // 
-            // radioButton3
+            // radioButtonLayer3
             // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(251, 31);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(62, 19);
-            this.radioButton3.TabIndex = 5;
-            this.radioButton3.Text = "Layer 3";
-            this.radioButton3.UseVisualStyleBackColor = true;
+            this.radioButtonLayer3.AutoSize = true;
+            this.radioButtonLayer3.Location = new System.Drawing.Point(251, 31);
+            this.radioButtonLayer3.Name = "radioButtonLayer3";
+            this.radioButtonLayer3.Size = new System.Drawing.Size(62, 19);
+            this.radioButtonLayer3.TabIndex = 5;
+            this.radioButtonLayer3.Text = "Layer 3";
+            this.radioButtonLayer3.UseVisualStyleBackColor = true;
+            this.radioButtonLayer3.CheckedChanged += new System.EventHandler(this.RadioButtonLayer_CheckedChanged);
             // 
-            // radioButton2
+            // radioButtonLayer2
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(128, 31);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(62, 19);
-            this.radioButton2.TabIndex = 4;
-            this.radioButton2.Text = "Layer 2";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.radioButtonLayer2.AutoSize = true;
+            this.radioButtonLayer2.Location = new System.Drawing.Point(128, 31);
+            this.radioButtonLayer2.Name = "radioButtonLayer2";
+            this.radioButtonLayer2.Size = new System.Drawing.Size(62, 19);
+            this.radioButtonLayer2.TabIndex = 4;
+            this.radioButtonLayer2.Text = "Layer 2";
+            this.radioButtonLayer2.UseVisualStyleBackColor = true;
+            this.radioButtonLayer2.CheckedChanged += new System.EventHandler(this.RadioButtonLayer_CheckedChanged);
             // 
             // label1
             // 
@@ -400,7 +404,7 @@
             this.panel2.Controls.Add(this.ShortcutActionRBTN);
             this.panel2.Controls.Add(this.textBox1);
             this.panel2.Controls.Add(this.label1);
-            this.panel2.Controls.Add(this.checkBox1);
+            this.panel2.Controls.Add(this.EnableActionCheckBox);
             this.panel2.Location = new System.Drawing.Point(8, 342);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(409, 248);
@@ -584,12 +588,12 @@
         private Button button2;
         private Button button5;
         private ColorDialog colorDialog1;
-        private CheckBox checkBox1;
+        private CheckBox EnableActionCheckBox;
         private TextBox textBox1;
-        private RadioButton radioButton1;
+        private RadioButton radioButtonLayer1;
         private GroupBox groupBox1;
-        private RadioButton radioButton3;
-        private RadioButton radioButton2;
+        private RadioButton radioButtonLayer3;
+        private RadioButton radioButtonLayer2;
         private Label label1;
         private Panel panel2;
         private TextBox textActionTxtBox;
@@ -611,5 +615,6 @@
         private CheckBox ALTcb;
         private TextBox shortcutKeyCode;
         private Button SaveLayerBtn;
+        private FolderBrowserDialog folderBrowserDialog1;
     }
 }
