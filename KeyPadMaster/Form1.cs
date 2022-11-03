@@ -214,7 +214,7 @@ namespace KeyPadMaster
                 if(index == 0)
                 {
                     File.AppendAllLines(path + ActFile, actionImports);
-                    File.AppendAllText(path + ActFile, "def Layer1(k)"+ Environment.NewLine);
+                    File.AppendAllText(path + ActFile, "def Layer1(k):"+ Environment.NewLine);
                     File.AppendAllText(path + ActFile, Functions.GetIdent(1)+"if ");
                     index = 1;
                 }
