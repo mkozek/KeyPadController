@@ -105,7 +105,7 @@ namespace KeyPadMaster
 
             if (MediaActionRBTN.Checked)
             {
-                action = new MediaAction(selMediaActionCombo.SelectedText);
+                action = new MediaAction(selMediaActionCombo.SelectedItem.ToString());
             }
             if (TextActionRBTN.Checked)
             {
